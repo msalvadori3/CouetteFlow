@@ -1,0 +1,33 @@
+<input_file>
+  <input_data>
+    <geometry>
+      <jmax>51</jmax>
+    </geometry>
+    <setup>
+      <Project>2D_CouetteFlow</Project>
+      <Utop>1.0</Utop>
+      <nu>1.0</nu>
+      <nmax>1000000</nmax>
+      <nout>1000000</nout>
+      <L>1.0</L>
+      <dt>0.000625</dt>
+      <theta>1.0</theta>
+      <RMSres>1.0e-7</RMSres>
+    </setup>
+    <PostProcessing>
+      <plot>
+          <iPost>1</iPost>
+          <Method>Python</Method>
+          <files>data_1.dat</files>
+          <style>k +r</style>
+          <label>Grid</label>
+          <LegendFontSize>16</LegendFontSize>
+          <FigureSize>10 7</FigureSize>
+          <AxisLabelSize>21</AxisLabelSize>
+          <AxisTitleSize>22</AxisTitleSize>
+          <XTickSize>23</XTickSize>
+          <YTickSize>24</YTickSize>
+      </plot>
+    </PostProcessing>
+  </input_data>
+</input_file>

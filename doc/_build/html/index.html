@@ -1,0 +1,164 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Documentaion for Solving CouetteFlow with different Numerical Schemes &#8212; CouetteFlow  documentation</title>
+    
+    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Project Description" href="background.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="background.html" title="Project Description"
+             accesskey="N">next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">CouetteFlow  documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="#">
+              <img class="logo" src="_static/logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Documentaion for Solving CouetteFlow with different Numerical Schemes</a></li>
+<li><a class="reference internal" href="#contents">Contents</a></li>
+</ul>
+
+  <h4>Next topic</h4>
+  <p class="topless"><a href="background.html"
+                        title="next chapter">Project Description</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="documentaion-for-solving-couetteflow-with-different-numerical-schemes">
+<h1>Documentaion for Solving CouetteFlow with different Numerical Schemes<a class="headerlink" href="#documentaion-for-solving-couetteflow-with-different-numerical-schemes" title="Permalink to this headline">¶</a></h1>
+<p>Author: Marc Salvadori</p>
+<p>Email: <a class="reference external" href="mailto:msalvadori3&#37;&#52;&#48;gatech&#46;edu">msalvadori3<span>&#64;</span>gatech<span>&#46;</span>edu</a></p>
+<p>Numerical solution schemes are often referred to as being explicit or implicit. When a direct computation of the dependent variables can be made in terms of known quantities, the computation is said to be explicit. When the dependent variables are defined by coupled sets of equations, and either a matrix or iterative technique is needed to obtain the solution, the numerical method is said to be implicit. In computational fluid dynamics, the governing equations are nonlinear, and the number of unknown variables is typically very large. Under these conditions implicitly formulated equations are almost always solved using iterative techniques.</p>
+<p>Iterations are used to advance a solution through a sequence of steps from a starting state to a final, converged state. This is true whether the solution sought is either one step in a transient problem or a final steady-state result. In either case, the iteration steps resemble a time-like process. Of course, the iteration steps usually do not correspond to a realistic time-dependent behavior. In fact, it is this aspect of an implicit method that makes it attractive for steady-state computations, because the number of iterations required for a solution is often much smaller than the number of time steps needed for an accurate transient that asymptotically approaches steady conditions.</p>
+<p>On the other hand, it is also this “distorted transient” feature that leads to the question, “What are the consequences of using an implicit versus an explicit solution method for a time-dependent problem?” The answer to this question has two parts. The first part has to do with numerical stability and the second part with numerical accuracy.</p>
+<p>The purpose of this project is investigate the use of numerical schemes to try to answer the above questions.</p>
+</div>
+<div class="section" id="contents">
+<h1>Contents<a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="background.html">Project Description</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="background.html#given-task">Given task</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#setting-up-couette-solver">Setting up Couette Solver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#code-structure">Code Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#input-file">Input File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#compilation">Compilation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#results">Results</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="inputfile.html">Input File</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="inputfile.html#structure-of-the-geometry-module">Structure of the Geometry Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inputfile.html#structure-of-setup-module">Structure of Setup Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inputfile.html#structure-of-postprocessing-module">Structure of Postprocessing Module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="devel.html">Code development</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="devel.html#couetteflow-code-summary">CouetteFlow Code summary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="devel.html#details-of-couetteflow-development">Details of CouetteFlow development</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="couettepy.html">CouetttePy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="couettepyfiles/compile.html">Compilation Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="couettepyfiles/compile.html#setting-the-path">Setting the path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="couettepyfiles/compile.html#cleaning-commands">Cleaning commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="couettepyfiles/plot.html">Plotting Utility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="couettepyfiles/documentation.html">Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="results.html">Evaluation Cases</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="results.html#couette-flow-results">Couette Flow Results</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="background.html" title="Project Description"
+             >next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">CouetteFlow  documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Marc Salvadori.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.1.
+    </div>
+  </body>
+</html>

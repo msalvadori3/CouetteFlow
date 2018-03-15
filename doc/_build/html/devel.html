@@ -1,0 +1,248 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Code development &#8212; CouetteFlow  documentation</title>
+    
+    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="CouetttePy" href="couettepy.html" />
+    <link rel="prev" title="Input File" href="inputfile.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="couettepy.html" title="CouetttePy"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="inputfile.html" title="Input File"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">CouetteFlow  documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Code development</a><ul>
+<li><a class="reference internal" href="#couetteflow-code-summary">CouetteFlow Code summary</a></li>
+<li><a class="reference internal" href="#details-of-couetteflow-development">Details of CouetteFlow development</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="inputfile.html"
+                        title="previous chapter">Input File</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="couettepy.html"
+                        title="next chapter">CouetttePy</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/devel.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="code-development">
+<h1>Code development<a class="headerlink" href="#code-development" title="Permalink to this headline">¶</a></h1>
+<p>The present project is aimed to develop a computer program for solving 1-D unsteady ‘Couette Flow’ problem. Hereafter, the program developed in this project is called ‘CouetteFlow’.</p>
+<div class="section" id="couetteflow-code-summary">
+<h2>CouetteFlow Code summary<a class="headerlink" href="#couetteflow-code-summary" title="Permalink to this headline">¶</a></h2>
+<p>The source code contains the following directories:</p>
+<ul class="simple">
+<li>io - input/output related routines</li>
+<li>main - main program driver</li>
+<li>math - thomas algorithm</li>
+<li>modules - main couette flow solver routines</li>
+<li>utils - list of useful FORTRAN utilities used within the program</li>
+<li>couettepy - python wrapper for gridgen main program</li>
+</ul>
+<blockquote>
+<div>Also a ‘CMakeLists.txt’ file is also included for cmake compiling.</div></blockquote>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ cd CouetteFlow/src/
+$ ls
+$ CMakeLists.txt  io  main math modules utils couettepy
+</pre></div>
+</div>
+<p>The <strong>io</strong> folder has <strong>io.F90</strong> file which contains <strong>ReadInput(inputData)</strong> subroutine. It also includes <strong>input_file_xml</strong> which describes the structure of the user run-time input file located in the main ‘src’ directory, and <strong>output.F90</strong> for storing data in bothb Tecplot and Python format.</p>
+<p>The <strong>main</strong> folder is only used for containing the code driver file. The main routines is run by <strong>couette.F90</strong> which calls important subroutines from the rest of folders.</p>
+</div>
+<div class="section" id="details-of-couetteflow-development">
+<h2>Details of CouetteFlow development<a class="headerlink" href="#details-of-couetteflow-development" title="Permalink to this headline">¶</a></h2>
+<p>The source code shown below is <strong>couette.F90</strong> and it calls skeletal subroutines for generating grid structure. The main features of the main code is to (1) read input file, (2) make initialized variable arrays, (3) se the BCs and ICs, (4) set the time step for the solver, (5) Non-dimensionalize the variables , (6) use the thomas algorithm to calculate and update the velocity, and (7) finally write output files along with the RMS:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>PROGRAM main
+
+      USE xml_data_input_file
+      USE CouetteSetup_m,ONLY:Init,EndVars,TimeStep,NonDim2DimVars,&amp;
+                              Dim2NonDimVars
+      USE parameters_m,ONLY:wp
+      USE SimVars_m,ONLY:fileLength,c1,c2,cr,elapse_time,rate,iflag,&amp;
+                          dt,t,nmax,rms_SS,rms_US,maxRMS_US
+      USE CouetteSolver_m,ONLY:TriDiag,SteadySoln,UnsteadySoln,SteadyRMS,UnsteadyRMS
+      USE output_m,ONLY:WritePlotFile,WriteRMS
+
+      IMPLICIT NONE
+
+      TYPE(input_type_t) :: inputData
+      CHARACTER(LEN=fileLength) ::output= &#39;data&#39;
+      CHARACTER(LEN=fileLength) :: rmsout = &#39;rms&#39;
+      INTEGER :: n
+
+      ! Start the time measurements
+      elapse_time = 0.0_wp
+
+      CALL system_clock(count_rate=cr)
+      rate = REAL(cr)
+      CALL system_clock(c1)
+
+      ! Call the initialization of variables
+      CALL Init(inputData)
+      ! Setup the time step based
+
+      IF (dt == 0.0_wp) THEN
+              iflag = 0
+              WRITE(*,*)&#39;---------------------------------------------------------&#39;
+              CALL TimeStep(iflag)
+              WRITE(*,*)&#39;---------------------------------------------------------&#39;
+              IF (iflag == 1) STOP
+
+      END IF
+
+      CALL SteadySoln()
+      CALL NonDim2DimVars()
+      CALL UnsteadySoln()
+      CALL NonDim2DimVars()
+
+      ! Output Initial Solutions
+      WRITE(*,*) &#39;Printing Initial Solution.......................................&#39;
+      CALL WritePlotFile(output,&#39;&quot;y&quot;,&quot;u&quot;,&quot;uExact&quot;,&quot;yp&quot;,&quot;up&quot;,&quot;upExact&quot;&#39;,inputData,t)
+      WRITE(*,*)&#39;-----------------------------------------------------------------&#39;
+
+      ! Time loop
+      DO n = 1,nmax
+
+        t = t+dt
+
+        CALL Dim2NonDimVars()
+        CALL TriDiag()
+        CALL UnsteadySoln()
+        CALL NonDim2DimVars()
+        CALL UnsteadyRMS()
+        CALL SteadyRMS()
+        MaxRMS_US = MAX(MaxRMS_US,rms_US)
+        CALL WriteRMS(n,rms_SS,rms_US,rmsout,inputData)
+
+        IF (MOD(n,inputData%setup%nout) == 0) THEN
+            CALL WritePlotFile(output,&#39;&quot;y&quot;,&quot;u&quot;,&quot;uExact&quot;,&quot;yp&quot;,&quot;up&quot;,&quot;upExact&quot;&#39;,inputData,t)
+        END IF
+
+        IF (rms_SS &lt; inputData%setup%RMSres) THEN
+                iflag = 1
+                WRITE(*,*) &#39;---------------------------------------------------------------------&#39;
+                WRITE(*,*) &#39;Convergence Successful=======&gt; Printing Solution.....................&#39;
+                CALL WritePlotFile(output,&#39;&quot;y&quot;,&quot;u&quot;,&quot;uExact&quot;,&quot;yp&quot;,&quot;up&quot;,&quot;upExact&quot;&#39;,inputData,t)
+                WRITE(*,*) &#39;---------------------------------------------------------------------&#39;
+                EXIT
+        ENDIF
+
+       END DO
+
+       ! Last check for non-convergence
+
+       IF (iflag /= 1) THEN
+               WRITE(*,&#39;(A,X,I6.6,X,A)&#39;) &#39;CONVERGENCE FAILURE WITH&#39;,nmax,&#39;ITERATIONS&#39;
+       END IF
+
+      CALL system_clock(c2)
+
+      elapse_time = REAL(c2-c1,KIND=wp)/rate
+
+      WRITE(*,*) &quot;&quot;
+      WRITE(*,&#39;(A,F10.6,A)&#39;) &quot;| Total elapse time: &quot;,elapse_time, &quot; [s]|&quot;
+
+END PROGRAM main
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="couettepy.html" title="CouetttePy"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="inputfile.html" title="Input File"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">CouetteFlow  documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Marc Salvadori.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.1.
+    </div>
+  </body>
+</html>

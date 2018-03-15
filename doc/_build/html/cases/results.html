@@ -1,0 +1,548 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Results summary &#8212; CouetteFlow  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Evaluation Cases" href="../results.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../results.html" title="Evaluation Cases"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CouetteFlow  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../results.html" accesskey="U">Evaluation Cases</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Results summary</a><ul>
+<li><a class="reference internal" href="#a-show-the-expression-for-that-non-dimensionalizes-the-governing-pde-show-the-non-dimensionalized-form-of-the-governing-pde">A) Show the expression for <span class="math">\(\tau\)</span> that non-dimensionalizes the governing PDE. Show the non-dimensionalized form of the governing PDE.</a></li>
+<li><a class="reference internal" href="#b-show-the-non-dimensionalized-form-of-the-time-dependent-exact-solution-expression-for-the-specified-boundary-and-initial-conditions-given-in-this-problem">B) Show the non-dimensionalized form of the time-dependent exact solution expression for the specified boundary and initial conditions given in this problem.</a></li>
+<li><a class="reference internal" href="#c-provide-a-brief-description-of-the-finite-difference-scheme-in-non-dimensional-form-the-solution-method-used-and-exactly-how-the-boundary-and-initial-conditions-are-applied">C) Provide a brief description of the finite difference scheme (in non-dimensional form), the solution method used and exactly how the boundary and initial conditions are applied.</a></li>
+<li><a class="reference internal" href="#d-show-the-expression-used-for-calculating-the-rms-error-relative-to-the-time-dependent-exact-solution-also-show-the-expression-used-for-calculating-the-rms-error-relative-to-the-steady-state-exact-solution-also-give-a-statement-of-the-criteria-used-to-end-the-calculations">D) Show the expression used for calculating the RMS Error relative to the time-dependent exact solution. Also show the expression used for calculating the RMS Error relative to the steady-state exact solution. Also, give a statement of the criteria used to end the calculations.</a></li>
+<li><a class="reference internal" href="#f-for-present-a-graph-which-clearly-shows-the-progression-of-velocity-profiles-during-the-flow-development-when-the-plot-should-show-the-initial-profile-final-steady-state-profile-and-at-least-3-other-non-steady-state-profiles-i-e-all-on-the-same-plot-overlay-the-exact-numerical-velocity-profiles-on-this-plot-for-the-same-points-in-time-create-similar-plots-for-and">F) For <span class="math">\(\theta = 0\)</span>, present a graph which clearly shows the progression of velocity profiles during the flow development when <span class="math">\(\text{jmax} = 51\)</span>. The plot should show the initial profile, final steady state profile and at least 3 other non-steady-state profiles (i.e. all on the same plot). Overlay the exact numerical velocity profiles on this plot for the same points in time. Create similar plots for <span class="math">\(\theta = 1/2\)</span> and <span class="math">\(\theta = 1\)</span>.</a></li>
+<li><a class="reference internal" href="#g-provides-a-comparison-of-the-stability-behavior-of-your-solver-to-the-stability-analysis-performed-in-homework-assignment-3-compute-cases-with-and-using-various-values-of-to-explore-the-stability-boundaries-of-your-solver-show-and-discuss-whether-or-not-your-solver-follows-the-theoretical-stability-behavior-of-these-three-numerical-schemes">G) Provides a comparison of the stability behavior of your solver to the stability analysis performed in Homework Assignment #3. Compute <span class="math">\(\text{jmax} = 51\)</span> cases with <span class="math">\(\theta = 0\)</span>, <span class="math">\(1/2\)</span>, and <span class="math">\(1\)</span> using various values of <span class="math">\(\Delta t\)</span> to explore the stability boundaries of your solver. Show and discuss whether or not your solver follows the theoretical stability behavior of these three numerical schemes.</a><ul>
+<li><a class="reference internal" href="#fully-explicit">1) <span class="math">\(\theta\)</span> = 0 (Fully explicit)</a></li>
+<li><a class="reference internal" href="#crank-nicolson-scheme">2) <span class="math">\(\theta\)</span> = 1/2 (Crank-Nicolson scheme)</a></li>
+<li><a class="reference internal" href="#fully-implicit">3) <span class="math">\(\theta\)</span> = 1 (Fully implicit)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#h-write-down-an-expression-s-for-the-truncation-error-te-of-this-finite-difference-scheme-and-describe-the-order-of-accuracy-of-the-scheme-for-different-values-of-note-you-are-not-required-to-derive-the-te-expression">H) Write down an expression(s) for the truncation error (TE) of this finite difference scheme and describe the order of accuracy of the scheme for different values of <span class="math">\(\theta\)</span>. Note: You are not required to derive the TE expression.</a></li>
+<li><a class="reference internal" href="#i-investigate-the-spatial-order-of-accuracy-of-the-code-for-1-do-this-by-using-a-small-value-of-0-000625-and-running-multiple-cases-of-the-code-with-different-values-of-i-e-0-1-0-05-0-025-0-0125-make-a-table-and-log-log-plot-of-the-peak-rms-error-relative-to-the-time-dependent-exact-solution-as-a-function-of-based-on-these-results-discuss-whether-or-not-your-solver-follows-the-theoretical-order-of-spatial-accuracy-given-by-the-te-expression-for-the-scheme-also-explain-why-it-is-important-to-use-a-small-when-we-investigate-the-spatial-accuracy-of-this-scheme">I) Investigate the spatial order of accuracy of the code for <span class="math">\(\theta\)</span> = 1. Do this by using a small value of <span class="math">\(\Delta t'\)</span> = 0.000625 and running multiple cases of the code with different values of <span class="math">\(\Delta y'\)</span> (i.e. 0.1, 0.05, 0.025, 0.0125). Make a table and log-log plot of the peak RMS error (relative to the time-dependent exact solution) as a function of <span class="math">\(\Delta y'\)</span>. Based on these results, discuss whether or not your solver follows the theoretical order of spatial accuracy given by the TE expression for the scheme. Also, explain why it is important to use a small <span class="math">\(\Delta t'\)</span> when we investigate the spatial accuracy of this scheme.</a></li>
+<li><a class="reference internal" href="#j-investigate-the-temporal-order-of-accuracy-of-the-code-for-1-and-1-2-do-this-by-using-jmax-51-and-various-i-e-0-02-0-01-0-005-0-0025-0-00125-0-000625-make-tables-and-a-log-log-plots-of-the-peak-rms-error-relative-to-the-time-dependent-exact-solution-as-a-function-for-1-and-1-2-based-on-these-results-discuss-whether-or-not-your-solver-follows-the-theoretical-order-of-temporal-accuracy-given-by-the-te-expression-for-the-scheme">J) Investigate the temporal order of accuracy of the code for <span class="math">\(\theta\)</span> = 1 and <span class="math">\(\theta\)</span> = 1/2. Do this by using jmax = 51 and various <span class="math">\(\Delta t'\)</span> (i.e. 0.02, 0.01, 0.005, 0.0025, 0.00125, 0.000625). Make tables and a log-log plots of the peak RMS error (relative to the time-dependent exact solution) as a function <span class="math">\(\Delta t'\)</span> for <span class="math">\(\theta\)</span> = 1 and <span class="math">\(\theta\)</span> = 1/2. Based on these results, discuss whether or not your solver follows the theoretical order of temporal accuracy given by the TE expression for the scheme.</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../results.html"
+                        title="previous chapter">Evaluation Cases</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/cases/results.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="results-summary">
+<h1>Results summary<a class="headerlink" href="#results-summary" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Some of the contents in this page are animations of the solution. In order to view please visit <a class="reference external" href="https://readthedocs.org/dashboard/">ReadDocs</a></p>
+</div>
+<div class="section" id="a-show-the-expression-for-that-non-dimensionalizes-the-governing-pde-show-the-non-dimensionalized-form-of-the-governing-pde">
+<h2>A) Show the expression for <span class="math">\(\tau\)</span> that non-dimensionalizes the governing PDE. Show the non-dimensionalized form of the governing PDE.<a class="headerlink" href="#a-show-the-expression-for-that-non-dimensionalizes-the-governing-pde-show-the-non-dimensionalized-form-of-the-governing-pde" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Non-dimensionalized variables:</p>
+<div class="math">
+\[u' = \frac{u}{u_{top}}\]</div>
+<div class="math">
+\[t' = \frac{t}{\tau}\]</div>
+<div class="math">
+\[y' = \frac{y}{L}\]</div>
+<div class="math">
+\[\tau = \frac{L^{2}}{\nu}\]</div>
+</li>
+<li><p class="first">Non-dimensionalized governing PDE:</p>
+<div class="math">
+\[\frac{\partial u'}{\partial t'} = \frac{\partial^{2}u'}{\partial y'^{2}}\]</div>
+</li>
+</ul>
+</div>
+<div class="section" id="b-show-the-non-dimensionalized-form-of-the-time-dependent-exact-solution-expression-for-the-specified-boundary-and-initial-conditions-given-in-this-problem">
+<h2>B) Show the non-dimensionalized form of the time-dependent exact solution expression for the specified boundary and initial conditions given in this problem.<a class="headerlink" href="#b-show-the-non-dimensionalized-form-of-the-time-dependent-exact-solution-expression-for-the-specified-boundary-and-initial-conditions-given-in-this-problem" title="Permalink to this headline">¶</a></h2>
+<p>To find the time-dependent exact solution, we need to first find <span class="math">\(a_{n}\)</span> which satisfies the given initial velocity profile. The resolved form of <span class="math">\(a_{n}\)</span> is then re-written as:</p>
+<div class="math">
+\[\begin{split}a_{n} = \left\{\begin{matrix} 1 \text{  if } n = 1 \\ 0 \text{  if } n \neq  1 \end{matrix}\right.\end{split}\]</div>
+<p>Thus, applying the resolved <span class="math">\(a_{n}\)</span> into the given exact solution results in:</p>
+<div class="math">
+\[u'_{exact}(t',y') = y' + \text{sin}(\pi y') \text{exp}[-\pi^{2}t']\]</div>
+</div>
+<div class="section" id="c-provide-a-brief-description-of-the-finite-difference-scheme-in-non-dimensional-form-the-solution-method-used-and-exactly-how-the-boundary-and-initial-conditions-are-applied">
+<h2>C) Provide a brief description of the finite difference scheme (in non-dimensional form), the solution method used and exactly how the boundary and initial conditions are applied.<a class="headerlink" href="#c-provide-a-brief-description-of-the-finite-difference-scheme-in-non-dimensional-form-the-solution-method-used-and-exactly-how-the-boundary-and-initial-conditions-are-applied" title="Permalink to this headline">¶</a></h2>
+<p>Given finite difference scheme has a weighting parameter <span class="math">\(\theta\)</span> to put an effect of implicit solution. If <span class="math">\(\theta\)</span> is equal to 1, the scheme becomes to fully implicit, otherwise, the scheme can be partially implicit or explicit (<span class="math">\(\theta\)</span> = 0). Rearranging the given finite difference equation leads to the following simplified form:</p>
+<div class="math">
+\[a_{j} u^{n+1}_{j+1} + b_{j} u^{n+1}_{j} + c_{j} u^{n+1}_{j-1} = d_{j}\]</div>
+<p>where</p>
+<div class="math">
+\[ \begin{align}\begin{aligned}a_{j} = -r \theta\\b_{j} = 1 + 2r\theta\\c_{j} = -r\theta\\d_{j} = u^{n}_{j} + r(1-\theta)\left \{ u^{n}_{j-1} - 2u^{n}_{j} + u^{n}_{j+1} \right \}\end{aligned}\end{align} \]</div>
+<p>Here, the resulting equation has simplified coefficient <span class="math">\(r = \frac{\Delta t'}{\Delta y'^{2}}\)</span>.</p>
+<p>For the boundary condition, non-slip condition is applied to both upper and bottom plates. Thus, <span class="math">\(y(0) = 0\)</span> and <span class="math">\(y(L)=1\)</span> remain unchanged while the inner point quantities varies during the transient phase. The initial condition described earlier can satisfy the given boundary condition here. The Thomas algorithm is set to unchange the boundary condition as the time varies.</p>
+</div>
+<div class="section" id="d-show-the-expression-used-for-calculating-the-rms-error-relative-to-the-time-dependent-exact-solution-also-show-the-expression-used-for-calculating-the-rms-error-relative-to-the-steady-state-exact-solution-also-give-a-statement-of-the-criteria-used-to-end-the-calculations">
+<h2>D) Show the expression used for calculating the RMS Error relative to the time-dependent exact solution. Also show the expression used for calculating the RMS Error relative to the steady-state exact solution. Also, give a statement of the criteria used to end the calculations.<a class="headerlink" href="#d-show-the-expression-used-for-calculating-the-rms-error-relative-to-the-time-dependent-exact-solution-also-show-the-expression-used-for-calculating-the-rms-error-relative-to-the-steady-state-exact-solution-also-give-a-statement-of-the-criteria-used-to-end-the-calculations" title="Permalink to this headline">¶</a></h2>
+<p>In this project, two different types of RMS error formulation are used:</p>
+<ul>
+<li><p class="first">RMS error relative to the exact time-dependent solution</p>
+<div class="math">
+\[\text{RMS}_{\text{NSS}}(t) = \sqrt{\frac{1}{N} \sum_{\text{j}=2}^{\text{jmax}-1} \left [ \left ( u'_{exact,j}(t) - u'^{n} \right )^{2}  \right ]}\]</div>
+<p>where N is number of inner grid points.</p>
+</li>
+<li><p class="first">RMS error relative to the exact steady-state solution:</p>
+<div class="math">
+\[\text{RMS}_{\text{SS}}(t) = \sqrt{\frac{1}{N} \sum_{\text{j}=2}^{\text{jmax}-1} \left [ \left ( u'_{exact,j}(t=\infty ) - u'^{n} \right )^{2}  \right ]}\]</div>
+</li>
+<li><p class="first">The convergence criteria is limited by the following relation:</p>
+<div class="math">
+\[\text{RMS}_{\text{SS}}(t) \leqslant 1\times 10^{-7}\]</div>
+</li>
+</ul>
+</div>
+<div class="section" id="f-for-present-a-graph-which-clearly-shows-the-progression-of-velocity-profiles-during-the-flow-development-when-the-plot-should-show-the-initial-profile-final-steady-state-profile-and-at-least-3-other-non-steady-state-profiles-i-e-all-on-the-same-plot-overlay-the-exact-numerical-velocity-profiles-on-this-plot-for-the-same-points-in-time-create-similar-plots-for-and">
+<h2>F) For <span class="math">\(\theta = 0\)</span>, present a graph which clearly shows the progression of velocity profiles during the flow development when <span class="math">\(\text{jmax} = 51\)</span>. The plot should show the initial profile, final steady state profile and at least 3 other non-steady-state profiles (i.e. all on the same plot). Overlay the exact numerical velocity profiles on this plot for the same points in time. Create similar plots for <span class="math">\(\theta = 1/2\)</span> and <span class="math">\(\theta = 1\)</span>.<a class="headerlink" href="#f-for-present-a-graph-which-clearly-shows-the-progression-of-velocity-profiles-during-the-flow-development-when-the-plot-should-show-the-initial-profile-final-steady-state-profile-and-at-least-3-other-non-steady-state-profiles-i-e-all-on-the-same-plot-overlay-the-exact-numerical-velocity-profiles-on-this-plot-for-the-same-points-in-time-create-similar-plots-for-and" title="Permalink to this headline">¶</a></h2>
+<p>In this problem, the time step was employed as <span class="math">\(\Delta t'\)</span> = 0.0002 in order to have stable convergence for every <span class="math">\(\theta\)</span> cases. This time step was then applied to the other <span class="math">\(\theta\)</span> cases. As the following three figures show, the numerical solution well follows the analytical solution in both time and spatial domain.</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><span class="math">\(\theta\)</span> = 0 (Fully explicit scheme): Converged at iteration number of 7990.</li>
+</ol>
+<div class="figure align-center">
+<img alt="../_images/VelProfileA.png" src="../_images/VelProfileA.png" style="width: 700.0px; height: 490.0px;" />
+</div>
+<div class="figure align-center">
+<img alt="../_images/VelProfileA.gif" src="../_images/VelProfileA.gif" style="width: 700.0px; height: 490.0px;" />
+</div>
+<ol class="arabic simple" start="2">
+<li><span class="math">\(\theta\)</span> = 0.5 (Crank-Nicolson scheme): Converged at iteration number of 7998.</li>
+</ol>
+<div class="figure align-center">
+<img alt="../_images/VelProfileB.png" src="../_images/VelProfileB.png" style="width: 700.0px; height: 490.0px;" />
+</div>
+<div class="figure align-center">
+<img alt="../_images/VelProfileB.gif" src="../_images/VelProfileB.gif" style="width: 700.0px; height: 490.0px;" />
+</div>
+<ol class="arabic simple" start="3">
+<li><span class="math">\(\theta\)</span> = 1 (Fully implicit scheme): Converged at iteration number of 8006.</li>
+</ol>
+<div class="figure align-center">
+<img alt="../_images/VelProfileC.png" src="../_images/VelProfileC.png" style="width: 700.0px; height: 490.0px;" />
+</div>
+<div class="figure align-center">
+<img alt="../_images/VelProfileC.gif" src="../_images/VelProfileC.gif" style="width: 700.0px; height: 490.0px;" />
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="g-provides-a-comparison-of-the-stability-behavior-of-your-solver-to-the-stability-analysis-performed-in-homework-assignment-3-compute-cases-with-and-using-various-values-of-to-explore-the-stability-boundaries-of-your-solver-show-and-discuss-whether-or-not-your-solver-follows-the-theoretical-stability-behavior-of-these-three-numerical-schemes">
+<h2>G) Provides a comparison of the stability behavior of your solver to the stability analysis performed in Homework Assignment #3. Compute <span class="math">\(\text{jmax} = 51\)</span> cases with <span class="math">\(\theta = 0\)</span>, <span class="math">\(1/2\)</span>, and <span class="math">\(1\)</span> using various values of <span class="math">\(\Delta t\)</span> to explore the stability boundaries of your solver. Show and discuss whether or not your solver follows the theoretical stability behavior of these three numerical schemes.<a class="headerlink" href="#g-provides-a-comparison-of-the-stability-behavior-of-your-solver-to-the-stability-analysis-performed-in-homework-assignment-3-compute-cases-with-and-using-various-values-of-to-explore-the-stability-boundaries-of-your-solver-show-and-discuss-whether-or-not-your-solver-follows-the-theoretical-stability-behavior-of-these-three-numerical-schemes" title="Permalink to this headline">¶</a></h2>
+<p><strong>A.</strong> The stability analysis can be summarized by:</p>
+<ul class="simple">
+<li>Unconditionally stable if <span class="math">\(\theta \geqslant \frac{1}{2}\)</span></li>
+<li>Conditionally stable if <span class="math">\(0 \leqslant \theta &lt; \frac{1}{2}\)</span></li>
+</ul>
+<p>In the case of conditionally stable scheme, the maximum time step can be determined by using below relation so that the scheme is stable with given <span class="math">\(\theta\)</span>.</p>
+<div class="math">
+\[\Delta t \leqslant \frac{\Delta y^{2}}{4\left ( \frac{1}{2}-\theta \right )}\]</div>
+<div class="section" id="fully-explicit">
+<h3>1) <span class="math">\(\theta\)</span> = 0 (Fully explicit)<a class="headerlink" href="#fully-explicit" title="Permalink to this headline">¶</a></h3>
+<p>According to the above relation, for <span class="math">\(\theta = 0\)</span>, the maximum time step should be 0.0002 to make the scheme stable. Following figures show the convergence history for three different time step cases: (1) ensurely stable time step, (2). maximum time step and (3). slightly bigger time-step than the maximum value. If you can’t see the movies below, you are seeing the printed version of document.</p>
+<p>The figure below is the case with <span class="math">\(dt'\)</span> = 0.0001 that is ensured for the stability for fully explicit scheme.</p>
+<ul>
+<li><p class="first"><span class="math">\(dt' = 0.0001\)</span></p>
+<ul class="simple">
+<li>Movie of velcoity profile (online available)</li>
+</ul>
+<div class="figure align-center">
+<img alt="../_images/VelProfile_Theta0_dt_0001.gif" src="../_images/VelProfile_Theta0_dt_0001.gif" style="width: 700.0px; height: 490.0px;" />
+</div>
+<ul class="simple">
+<li>RMS error</li>
+</ul>
+<div class="figure align-center">
+<img alt="../_images/RMSlogdt0001.png" src="../_images/RMSlogdt0001.png" style="width: 560.0px; height: 350.0px;" />
+</div>
+</li>
+</ul>
+<p>Even the slightly bigger time-step causes the unstable solution and thus, the RMS error is taken off and goes to infinity after a certain number of iteration.</p>
+<ul>
+<li><p class="first"><span class="math">\(dt' = 0.00021\)</span></p>
+<ul class="simple">
+<li>Movie of velocity profile (online available)</li>
+</ul>
+<div class="figure align-center">
+<img alt="../_images/VelProfile_Theta0_dt_00021.gif" src="../_images/VelProfile_Theta0_dt_00021.gif" style="width: 700.0px; height: 490.0px;" />
+</div>
+<ul class="simple">
+<li>RMS error</li>
+</ul>
+<div class="figure align-center">
+<img alt="../_images/RMSlogdt00021.png" src="../_images/RMSlogdt00021.png" style="width: 560.0px; height: 350.0px;" />
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="crank-nicolson-scheme">
+<h3>2) <span class="math">\(\theta\)</span> = 1/2 (Crank-Nicolson scheme)<a class="headerlink" href="#crank-nicolson-scheme" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><strong>Convergence check with the various time step:</strong></li>
+</ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="52%" />
+<col width="48%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Non-dimensional time step <span class="math">\(\Delta t'\)</span></td>
+<td>Maximum iteration for convergence</td>
+</tr>
+<tr class="row-even"><td>0.0001</td>
+<td>15996</td>
+</tr>
+<tr class="row-odd"><td>0.001</td>
+<td>1600</td>
+</tr>
+<tr class="row-even"><td>0.01</td>
+<td>160</td>
+</tr>
+<tr class="row-odd"><td>0.1</td>
+<td>15</td>
+</tr>
+<tr class="row-even"><td>1.0</td>
+<td>39</td>
+</tr>
+<tr class="row-odd"><td>10.0</td>
+<td>390</td>
+</tr>
+<tr class="row-even"><td>100.0</td>
+<td>3893</td>
+</tr>
+<tr class="row-odd"><td>1000.0</td>
+<td>38927</td>
+</tr>
+<tr class="row-even"><td>10000.0</td>
+<td>389268</td>
+</tr>
+</tbody>
+</table>
+<p>All the cases above seem to be stable but the convergence is strongly sensitive to how big or small time step is. The interesting pattern to be observed here is that the maximum iteration number for convergence shows quadratic behavior. That is, quite small and quite big time step require long iterations. In particular, big time steps, 1000, 10000, and 100000 for examples, take long period to make the scheme converged into the specified RMS residual. This is somewhat unphysical. If 10,000 sec is taken as a time step, it will take about 123 years for the flow to be settled down to the steady-state.</p>
+<p>The stability check can be done by looking at the movies as a function of different time-step. If you can’t see the movies below, you are seeing the printed version of document.</p>
+<ul class="simple">
+<li><span class="math">\(dt' = 0.0001\)</span></li>
+</ul>
+<p>The movies shown below is to show the velocity profile calculated by the present numerical solution and analytic solution. In this case, sufficiently small time-steps can ensure the physically proper behavior of the numerical solution.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Movie of velocity profile (online available)</li>
+</ul>
+<div class="figure align-center">
+<img alt="../_images/VelProfile_Theta0.5_dt0001.gif" src="../_images/VelProfile_Theta0.5_dt0001.gif" style="width: 700.0px; height: 490.0px;" />
+</div>
+</div></blockquote>
+<ul class="simple">
+<li><span class="math">\(dt' = 100\)</span></li>
+</ul>
+<p>As already mentioned above, since the given <span class="math">\(\theta\)</span> condition gives the stable solution, the improperly big time-step give rise to the extremely long period to have convergence. The second movie below shows the abnormal behavior of velocity profile. This may have to be involved with the inaccurate time gradient due to the big time-step, thus it leads to the negative velocity instantaneously and fluctuation of velocity profile.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Movie of velocity profile (online available)</li>
+</ul>
+<div class="figure align-center">
+<img alt="../_images/VelProfile_Theta0.5_dt100.gif" src="../_images/VelProfile_Theta0.5_dt100.gif" style="width: 700.0px; height: 490.0px;" />
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="fully-implicit">
+<h3>3) <span class="math">\(\theta\)</span> = 1 (Fully implicit)<a class="headerlink" href="#fully-implicit" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><strong>Convergence check with the various time step:</strong></li>
+</ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="52%" />
+<col width="48%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Non-dimensional time step <span class="math">\(\Delta t'\)</span></td>
+<td>Maximum iteration for convergence</td>
+</tr>
+<tr class="row-even"><td>0.0001</td>
+<td>16004</td>
+</tr>
+<tr class="row-odd"><td>0.001</td>
+<td>1608</td>
+</tr>
+<tr class="row-even"><td>0.01</td>
+<td>168</td>
+</tr>
+<tr class="row-odd"><td>0.1</td>
+<td>23</td>
+</tr>
+<tr class="row-even"><td>1.0</td>
+<td>7</td>
+</tr>
+<tr class="row-odd"><td>10.0</td>
+<td>4</td>
+</tr>
+<tr class="row-even"><td>100.0</td>
+<td>3</td>
+</tr>
+<tr class="row-odd"><td>1000.0</td>
+<td>2</td>
+</tr>
+<tr class="row-even"><td>10000.0</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>All the tested cases above are stable and the convergence performance is enhanced as the time step increases. Contrary to the Crank-Nicolson scheme case (<span class="math">\(\theta\)</span> = 0.5), the pattern of maximum iteration for convergence shows the linearity as a function of time step. Therefore, it can be concluded that the solver follows the theoretical stability behavior.</p>
+<ul>
+<li><p class="first"><span class="math">\(dt' = 0.0001\)</span></p>
+<ul class="simple">
+<li>Movie of velocity profile (online available)</li>
+</ul>
+<div class="figure align-center">
+<img alt="../_images/VelProfile_Theta1.0_dt0001.gif" src="../_images/VelProfile_Theta1.0_dt0001.gif" style="width: 700.0px; height: 490.0px;" />
+</div>
+<p><span class="math">\(dt' = 0.1\)</span></p>
+<ul class="simple">
+<li>Movie of velocity profile (online available)</li>
+</ul>
+<div class="figure align-center">
+<img alt="../_images/VelProfile_Theta1.0_dt_01.gif" src="../_images/VelProfile_Theta1.0_dt_01.gif" style="width: 700.0px; height: 490.0px;" />
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="h-write-down-an-expression-s-for-the-truncation-error-te-of-this-finite-difference-scheme-and-describe-the-order-of-accuracy-of-the-scheme-for-different-values-of-note-you-are-not-required-to-derive-the-te-expression">
+<h2>H) Write down an expression(s) for the truncation error (TE) of this finite difference scheme and describe the order of accuracy of the scheme for different values of <span class="math">\(\theta\)</span>. Note: You are not required to derive the TE expression.<a class="headerlink" href="#h-write-down-an-expression-s-for-the-truncation-error-te-of-this-finite-difference-scheme-and-describe-the-order-of-accuracy-of-the-scheme-for-different-values-of-note-you-are-not-required-to-derive-the-te-expression" title="Permalink to this headline">¶</a></h2>
+<div class="math">
+\[\text{T.E.} = \left [ \left ( \theta - \frac{1}{2} \right ) \Delta t + \frac{\Delta x^{2}}{12} \right ]u_{xxxx} + \left [ \left ( \theta^{2} - \theta + \frac{1}{3} \right )\Delta t^2 + \frac{1}{3} \left ( \theta - \frac{1}{2} \right )\Delta t \Delta x^2 + \frac{1}{360} \Delta x^{4} \right ] u_{xxxxxx} + \cdot \cdot \cdot\]</div>
+<p>According to the above equation, this combined method of explicit and implicit schemes has order of accuracy in time and space as a function of <span class="math">\(\theta\)</span>.</p>
+<ol class="arabic simple">
+<li><span class="math">\(\theta\)</span> = 1/2 (Crank-Nicolson scheme): <span class="math">\(\text{T.E.} = O\left [ (\Delta t)^{2}, (\Delta x)^{2} \right ]\)</span></li>
+<li>Simple explicit (<span class="math">\(\theta\)</span> = 0) and implicit (<span class="math">\(\theta\)</span> = 1): <span class="math">\(\text{T.E.} = O\left [ \Delta t, (\Delta x)^{2} \right ]\)</span></li>
+<li>Special case (<span class="math">\(\theta = \frac{1}{2} - \frac{(\Delta x)^{2}}{12\Delta t}\)</span>): <span class="math">\(\text{T.E.} = O \left [ (\Delta t)^{2}, (\Delta x)^{4} \right ]\)</span></li>
+</ol>
+</div>
+<div class="section" id="i-investigate-the-spatial-order-of-accuracy-of-the-code-for-1-do-this-by-using-a-small-value-of-0-000625-and-running-multiple-cases-of-the-code-with-different-values-of-i-e-0-1-0-05-0-025-0-0125-make-a-table-and-log-log-plot-of-the-peak-rms-error-relative-to-the-time-dependent-exact-solution-as-a-function-of-based-on-these-results-discuss-whether-or-not-your-solver-follows-the-theoretical-order-of-spatial-accuracy-given-by-the-te-expression-for-the-scheme-also-explain-why-it-is-important-to-use-a-small-when-we-investigate-the-spatial-accuracy-of-this-scheme">
+<h2>I) Investigate the spatial order of accuracy of the code for <span class="math">\(\theta\)</span> = 1. Do this by using a small value of <span class="math">\(\Delta t'\)</span> = 0.000625 and running multiple cases of the code with different values of <span class="math">\(\Delta y'\)</span> (i.e. 0.1, 0.05, 0.025, 0.0125). Make a table and log-log plot of the peak RMS error (relative to the time-dependent exact solution) as a function of <span class="math">\(\Delta y'\)</span>. Based on these results, discuss whether or not your solver follows the theoretical order of spatial accuracy given by the TE expression for the scheme. Also, explain why it is important to use a small <span class="math">\(\Delta t'\)</span> when we investigate the spatial accuracy of this scheme.<a class="headerlink" href="#i-investigate-the-spatial-order-of-accuracy-of-the-code-for-1-do-this-by-using-a-small-value-of-0-000625-and-running-multiple-cases-of-the-code-with-different-values-of-i-e-0-1-0-05-0-025-0-0125-make-a-table-and-log-log-plot-of-the-peak-rms-error-relative-to-the-time-dependent-exact-solution-as-a-function-of-based-on-these-results-discuss-whether-or-not-your-solver-follows-the-theoretical-order-of-spatial-accuracy-given-by-the-te-expression-for-the-scheme-also-explain-why-it-is-important-to-use-a-small-when-we-investigate-the-spatial-accuracy-of-this-scheme" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Comparison of Peak RMS error as a function of spatial steps</li>
+</ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="11%" />
+<col width="7%" />
+<col width="41%" />
+<col width="41%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>dy</td>
+<td>jmax</td>
+<td>Max RMS error (<span class="math">\(\Delta t\)</span> = 0.000625)</td>
+<td>Max RMS error (<span class="math">\(\Delta t\)</span> = 0.0001)</td>
+</tr>
+<tr class="row-even"><td>0.1</td>
+<td>11</td>
+<td>0.309370E-02</td>
+<td>0.239121E-02</td>
+</tr>
+<tr class="row-odd"><td>0.05</td>
+<td>21</td>
+<td>0.136823E-02</td>
+<td>0.680258E-03</td>
+</tr>
+<tr class="row-even"><td>0.025</td>
+<td>41</td>
+<td>0.945456E-03</td>
+<td>0.265312E-03</td>
+</tr>
+<tr class="row-odd"><td>0.0125</td>
+<td>81</td>
+<td>0.838836E-03</td>
+<td>0.162750E-03</td>
+</tr>
+<tr class="row-even"><td>0.00625</td>
+<td>161</td>
+<td>0.811120E-03</td>
+<td>0.137099E-03</td>
+</tr>
+<tr class="row-odd"><td>0.003125</td>
+<td>321</td>
+<td>0.803589E-03</td>
+<td>0.130609E-03</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="borderless docutils">
+<colgroup>
+<col width="52%" />
+<col width="48%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><span class="math">\(\Delta t\)</span> = 0.000625</td>
+<td><span class="math">\(\Delta t\)</span> = 0.0001</td>
+</tr>
+<tr class="row-even"><td><img alt="../_images/MaxRMSlog_dt_000625.png" class="first last" src="../_images/MaxRMSlog_dt_000625.png" style="width: 90%;" />
+</td>
+<td><img alt="../_images/MaxRMSlog_dt_0001.png" class="first last" src="../_images/MaxRMSlog_dt_0001.png" style="width: 90%;" />
+</td>
+</tr>
+</tbody>
+</table>
+<p>From the expression of the T.E. theoretical we see that for <span class="math">\(\theta\)</span> = 1, the truncation error is 1st order in time and 2nd order in space. The maximum RMS error for every test cases shows the quantitatively quadratic pattern as a function of spatial step size. Moreover, the smaller time step (here, <span class="math">\(\Delta t'\)</span> = 0.0001) makes this pattern more distinctive compared to the bigger time step. This is because the smaller time step can reduce the truncation error in time derivative and thus the RMS error is then significantly made by the spatial derivative terms.</p>
+</div>
+<div class="section" id="j-investigate-the-temporal-order-of-accuracy-of-the-code-for-1-and-1-2-do-this-by-using-jmax-51-and-various-i-e-0-02-0-01-0-005-0-0025-0-00125-0-000625-make-tables-and-a-log-log-plots-of-the-peak-rms-error-relative-to-the-time-dependent-exact-solution-as-a-function-for-1-and-1-2-based-on-these-results-discuss-whether-or-not-your-solver-follows-the-theoretical-order-of-temporal-accuracy-given-by-the-te-expression-for-the-scheme">
+<h2>J) Investigate the temporal order of accuracy of the code for <span class="math">\(\theta\)</span> = 1 and <span class="math">\(\theta\)</span> = 1/2. Do this by using jmax = 51 and various <span class="math">\(\Delta t'\)</span> (i.e. 0.02, 0.01, 0.005, 0.0025, 0.00125, 0.000625). Make tables and a log-log plots of the peak RMS error (relative to the time-dependent exact solution) as a function <span class="math">\(\Delta t'\)</span> for <span class="math">\(\theta\)</span> = 1 and <span class="math">\(\theta\)</span> = 1/2. Based on these results, discuss whether or not your solver follows the theoretical order of temporal accuracy given by the TE expression for the scheme.<a class="headerlink" href="#j-investigate-the-temporal-order-of-accuracy-of-the-code-for-1-and-1-2-do-this-by-using-jmax-51-and-various-i-e-0-02-0-01-0-005-0-0025-0-00125-0-000625-make-tables-and-a-log-log-plots-of-the-peak-rms-error-relative-to-the-time-dependent-exact-solution-as-a-function-for-1-and-1-2-based-on-these-results-discuss-whether-or-not-your-solver-follows-the-theoretical-order-of-temporal-accuracy-given-by-the-te-expression-for-the-scheme" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Comparison of Peak RMS error as a function of temporal steps</li>
+</ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="44%" />
+<col width="44%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>dt</td>
+<td>Max RMS error (<span class="math">\(\theta\)</span> = 0.5)</td>
+<td>Max RMS error (<span class="math">\(\theta\)</span> = 1.0)</td>
+</tr>
+<tr class="row-even"><td>0.02</td>
+<td>0.769763E-03</td>
+<td>0.240539E-01</td>
+</tr>
+<tr class="row-odd"><td>0.01</td>
+<td>0.126926E-03</td>
+<td>0.125364E-01</td>
+</tr>
+<tr class="row-even"><td>0.005</td>
+<td>8.561830E-05</td>
+<td>0.643657E-02</td>
+</tr>
+<tr class="row-odd"><td>0.0025</td>
+<td>8.312029E-05</td>
+<td>0.329439E-02</td>
+</tr>
+<tr class="row-even"><td>0.00125</td>
+<td>7.312270E-05</td>
+<td>0.169853E-02</td>
+</tr>
+<tr class="row-odd"><td>0.000625</td>
+<td>3.314359E-05</td>
+<td>0.894558E-03</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="borderless docutils">
+<colgroup>
+<col width="48%" />
+<col width="52%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><span class="math">\(\theta\)</span> = 0.5</td>
+<td><span class="math">\(\theta\)</span> = 1.0</td>
+</tr>
+<tr class="row-even"><td><img alt="../_images/MaxRMSlog_jmax_51.png" class="first last" src="../_images/MaxRMSlog_jmax_51.png" style="width: 90%;" />
+</td>
+<td><img alt="../_images/MaxRMSlogTheta1_jmax_51.png" class="first last" src="../_images/MaxRMSlogTheta1_jmax_51.png" style="width: 90%;" />
+</td>
+</tr>
+</tbody>
+</table>
+<p>The tested results presented above show the accuracy of numerical solution as a function of time step. The previous discussion on the truncation error tells that the fully implicit scheme (<span class="math">\(\theta\)</span> = 1) follows the 1st order in time and the Crank-Nicolson scheme (<span class="math">\(\theta\)</span> = 1/2) follows the 2nd order in time.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../results.html" title="Evaluation Cases"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">CouetteFlow  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../results.html" >Evaluation Cases</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, Marc Salvadori.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.1.
+    </div>
+  </body>
+</html>
